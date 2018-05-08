@@ -11,7 +11,7 @@ class DrawingSize(models.Model):
     Size = models.CharField(max_length=20, verbose_name="尺寸", null=True, blank=True)
 
     def __unicode__(self):
-        return u'%s' % (self.Name .__str__())
+        return u'%s' % (self.Name .__str__() + ":" + self.Size.__str__())
 
     class Meta:
         verbose_name = "图幅"
@@ -30,7 +30,7 @@ class Drawings(models.Model):
     isActive = models.BooleanField(verbose_name="是否生效", default=True)
 
     def __unicode__(self):
-        return u'%s' % (self.Updatetime.__str__())
+        return u'%s' % (self.Size.__str__())
 
     class Meta:
         verbose_name = "材料"

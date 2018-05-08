@@ -15,6 +15,7 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="time" />
+          <option value="sys" />
         </list>
       </option>
     </inspection_tool>

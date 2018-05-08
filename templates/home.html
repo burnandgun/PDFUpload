@@ -2,13 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>欢迎光临</title>
+    <title>图纸上传</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/lanrenzhijia.css">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/myfunction.js"></script>
 </head>
+
 <body>
-<form enctype="multipart/form-data" action="/upload_file/" method="post">
-   <input type="file" name="myfile" multiple=""/>
-   <br/>
-   <input type="submit" value="upload"/>
-</form>
+<div class="theme-buy">
+    <input class="file" type="file" name="file" multiple=""/>
+</div>
+<div class="theme-buy">
+    <button class="btn btn-primary btn-large theme-login" id="button" type="button" onclick="pdfTojson();">上传</button>
+</div>
+
+<div class="theme-popover window1">
+     <div class="theme-poptit">
+         <a href="javascript:;" title="关闭" class="close" onclick="changeConfrim()">×</a>
+         <h3>图纸列表</h3>
+     </div>
+    <div class="content1" style="height:75%; overflow:scroll; overflow-x:hidden;">
+        <table id="paperlist1"  cellspacing="0" cellpadding="0" border ="1" style="width:100%;border-top:#f6f6f6 5px solid ;border-bottom:#f6f6f6 5px solid;border-left: none;border-right:none;" >
+        </table>
+    </div>
+    <div >
+        <button class = "btn btn-primary input1" type="button" onclick="jsonToDB()" style="top: 10px ;left: 700px;">上传</button>
+    </div>
+</div>
+
+<div class="theme-popover window2">
+    <div class="theme-poptit">
+         <a href="javascript:;" title="关闭" class="close" onclick="changeConfrim()">×</a>
+         <h3>图纸列表</h3>
+    </div>
+    <div class="content2" style="height:75%; overflow:scroll; overflow-x:hidden;">
+        <table id="paperlist2"  cellspacing="0" cellpadding="0" border ="1" style="border-top:#f6f6f6 5px solid ;border-bottom:#f6f6f6 5px solid;border-left: none;border-right:none;" >
+        </table>
+    </div>
+    <div>
+        <form>
+            {% csrf_token %}
+            <div class="progress_bar" style="display:none;">
+                <div class="progress1" style="position:absolute;height:20px;width:100px;border:2px solid gray;left:20px;bottom:10px;margin-right:10px;">
+                    <div class="progress2" style="height:100%;width:0px;background:gray;"></div>
+                </div>
+                <b  class="progress3" style="position:absolute;margin-right:20px;left: 130px;bottom: 15px">0%</b>
+            </div>
+            <button class = "btn btn-primary input2" type="button" onclick="json2ToDB()" style="position:absolute;top: 325px ;left: 700px;">入库</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>

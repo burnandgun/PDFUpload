@@ -20,5 +20,9 @@ from PDFDeal.views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^upload_file/', upload_file),
-    url(r'^$', home, name='home')
+    url(r'^json_to_html/', json_to_html),
+    url(r'^$', home, name='home'),
+    url(r'^interface/', interface),
+    url(r'^show_progress/', show_progress),
+    url(r'^file_to_db/', file_to_db),
 ]
